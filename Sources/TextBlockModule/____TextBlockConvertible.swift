@@ -5,12 +5,7 @@
 //  Created by Jeremy Bannister on 9/16/22.
 //
 
-///
-public protocol TextBlockConvertible {
-    
-    ///
-    var asTextBlock: TextBlock { get }
-}
+// MARK: - multilineDescription
 
 ///
 public extension TextBlockConvertible {
@@ -22,4 +17,14 @@ public extension TextBlockConvertible {
             .indented(by: indentationCount)
             .joined(separator: "\n")
     }
+}
+
+
+// MARK: - TextBlockConvertible
+
+///
+public protocol TextBlockConvertible {
+    
+    ///
+    var asTextBlock: TextBlock { get }
 }

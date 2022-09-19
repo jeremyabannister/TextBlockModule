@@ -48,7 +48,7 @@ extension Dictionary: TextBlockConvertible {
             nestedBlock:
                 self.map { key, value in
                     TextBlock(value)
-                        .addingParameterLabel("\(key)")
+                        .addingParameterLabel(TextBlock(key))
                 }
                     .joinedAsCommaSeparatedList
         )

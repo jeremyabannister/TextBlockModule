@@ -5,29 +5,40 @@
 //  Created by Jeremy Bannister on 9/16/22.
 //
 
+// MARK: - memberwise
+
 ///
 public extension TextBlock {
     
     ///
-    init (_ anyValue: Any) {
+    static func memberwise
+        <T>
+        (_ type: T.Type,
+         typeNickname: String? = nil,
+         _ members: [(String, Any)])
+    -> Self {
         
         ///
-        if let textBlockConvertible = anyValue as? TextBlockConvertible {
-            self = textBlockConvertible.asTextBlock
-            
-        } else if let stringConvertible = anyValue as? CustomStringConvertible {
-            self = [stringConvertible.description]
-            
-        } else {
-            self = ["\(anyValue)"]
-        }
+        .callBlock(
+            header: typeNickname ?? "\(type)",
+            bracketType: .parenthesis,
+            nestedBlock: .parameterList(members)
+        )
     }
+}
+
+
+// MARK: - callBlock
+
+///
+public extension TextBlock {
     
     ///
-    static func callBlock (header: String?,
-                           bracketType: TextBracketType,
-                           nestedBlock: TextBlock)
-        -> TextBlock {
+    static func callBlock
+        (header: String?,
+         bracketType: TextBracketType,
+         nestedBlock: TextBlock)
+    -> TextBlock {
         
         ///
         let callHead = (header ?? "") + bracketType.opener
@@ -43,6 +54,13 @@ public extension TextBlock {
             return [callHead] + nestedBlock.indented() + [bracketType.closer]
         }
     }
+}
+
+
+// MARK: - parameterList
+
+///
+public extension TextBlock {
     
     ///
     static func parameterList (_ keyValuePairs: (String, Any)...) -> TextBlock {
@@ -55,36 +73,9 @@ public extension TextBlock {
             .map { TextBlock($0.1).addingParameterLabel($0.0) }
             .joinedAsCommaSeparatedList
     }
-    
-    ///
-    static func indented (by indentationCount: Int = 1,
-                          _ textBlock: TextBlock)
-        -> TextBlock {
-        
-        textBlock.indented(by: indentationCount)
-    }
-    
-    ///
-    func addingParameterLabel (_ label: String) -> TextBlock {
-        
-        ///
-        if self.count.isGreater(than: 1) {
-            return [label + ":"] + self.indented()
-        } else {
-            return [label + ":" + (self.first?.prepending(" ") ?? "")]
-        }
-    }
-    
-    ///
-    func indented (by indentationCount: Int = 1) -> TextBlock {
-        self.map { $0.indented(by: indentationCount) }
-    }
-    
-    ///
-    static func indentation (_ n: Int) -> String {
-        (0 ..< n).reduce(into: "") { string, _ in string += "    " }
-    }
 }
+
+// MARK: - Array<TextBlock>.joinedAsCommaSeparatedList
 
 ///
 public extension Array where Element == TextBlock {
@@ -94,6 +85,89 @@ public extension Array where Element == TextBlock {
         self.reduce(into: TextBlock()) { result, nextTextBlock in
             if result.isNotEmpty { result.mutateLast { $0 += "," } }
             result += nextTextBlock
+        }
+    }
+}
+
+// MARK: - addingParameterLabel
+
+///
+public extension TextBlock {
+    
+    ///
+    func addingParameterLabel (_ string: String) -> Self {
+        self.addingParameterLabel([string])
+    }
+    
+    ///
+    func addingParameterLabel (_ label: some TextBlockConvertible) -> Self {
+        addingParameterLabel(label.asTextBlock)
+    }
+    
+    ///
+    func addingParameterLabel (_ labelBlock: TextBlock) -> Self {
+        
+        ///
+        let labelBlock = labelBlock.mutatingLast { $0 += ":" }
+        
+        ///
+        if let labelLine = labelBlock.only,
+           let valueLine = self.only {
+            
+            ///
+            return [labelLine + " " + valueLine]
+            
+        } else {
+            
+            ///
+            return labelBlock + self.indented()
+        }
+    }
+}
+
+// MARK: - indented
+
+///
+public extension TextBlock {
+    
+    ///
+    static func indented
+        (by indentationCount: Int = 1,
+         _ textBlock: TextBlock)
+    -> TextBlock {
+        
+        ///
+        textBlock.indented(by: indentationCount)
+    }
+}
+
+///
+public extension TextBlock {
+    
+    ///
+    func indented (by indentationCount: Int = 1) -> TextBlock {
+        self.map { $0.indented(by: indentationCount) }
+    }
+}
+
+
+// MARK: - init(_:Any)
+
+///
+public extension TextBlock {
+    
+    ///
+    init (_ anyValue: Any) {
+        
+        ///
+        if let textBlockConvertible = anyValue as? TextBlockConvertible {
+            self = textBlockConvertible.asTextBlock
+            
+        } else if let stringConvertible = anyValue as? CustomStringConvertible {
+            self = [stringConvertible.description]
+            
+        } else {
+            self = ["\(anyValue)"]
         }
     }
 }
