@@ -1,6 +1,15 @@
 {
   "pins" : [
     {
+      "identity" : "collection-sorted-by-keypath",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/jeremyabannister/Collection-sorted-by-KeyPath",
+      "state" : {
+        "revision" : "2f5aef19fc4aa9292f6e4b1cbe6e79097927ef5e",
+        "version" : "0.1.0"
+      }
+    },
+    {
       "identity" : "collectionconcurrencykit",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/jeremyabannister/CollectionConcurrencyKit",
@@ -10,21 +19,48 @@
       }
     },
     {
+      "identity" : "data-humanreadabledescription",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/jeremyabannister/Data-humanReadableDescription",
+      "state" : {
+        "revision" : "38a7f852da2ad780626fcc30af528b0ae790d4a8",
+        "version" : "0.1.0"
+      }
+    },
+    {
+      "identity" : "data-utf8string",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/jeremyabannister/Data-utf8String",
+      "state" : {
+        "revision" : "0c9ce9755054c84aea37bbb385f0859df837aca1",
+        "version" : "0.1.0"
+      }
+    },
+    {
+      "identity" : "dummymodule",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/jeremyabannister/DummyModule",
+      "state" : {
+        "revision" : "ac22680abf1e4e7916c5abf53227395f51470bb1",
+        "version" : "0.1.0"
+      }
+    },
+    {
       "identity" : "emptycodablemodule",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/jeremyabannister/EmptyCodableModule",
       "state" : {
-        "revision" : "f796c11ca7ca1beb0d913cdd8879049969366c97",
-        "version" : "0.1.1"
+        "revision" : "55fbd6c19795e2450cc99baaa9d897e033b576a6",
+        "version" : "0.1.4"
       }
     },
     {
-      "identity" : "errormessage",
+      "identity" : "errormessage-module",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/jeremyabannister/ErrorMessage",
+      "location" : "https://github.com/jeremyabannister/ErrorMessage-module",
       "state" : {
-        "revision" : "a0b253ecbfcc8035e88e26f3b4f841ec0fe9a03d",
-        "version" : "0.1.2"
+        "revision" : "4eea71d7b3dc1a24fb0a69871009265819ec7ec5",
+        "version" : "0.1.0"
       }
     },
     {
@@ -32,8 +68,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/jeremyabannister/ExpressionErgonomics",
       "state" : {
-        "revision" : "d551b16edeb6d64a96b797b1c9f698a36e0d98ba",
-        "version" : "0.2.9"
+        "revision" : "f1004f67ac975e36f7400bb13a945bae1fb5c9ec",
+        "version" : "0.3.2"
       }
     },
     {
@@ -41,8 +77,17 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/jeremyabannister/FoundationToolkit",
       "state" : {
-        "revision" : "43d29466663fb752494ee2766f0ca394136c43f7",
-        "version" : "0.3.8"
+        "revision" : "f059a74b6365b306b0c46e16eec761e7fb4bf532",
+        "version" : "0.6.0"
+      }
+    },
+    {
+      "identity" : "jsontoolkit",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/jeremyabannister/JSONToolkit",
+      "state" : {
+        "revision" : "bfd2ae144794b57b41559c49c1c1ee071b44b6af",
+        "version" : "0.1.2"
       }
     },
     {
@@ -55,11 +100,11 @@
       }
     },
     {
-      "identity" : "propervaluetype",
+      "identity" : "propervaluetype-module",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/jeremyabannister/ProperValueType",
+      "location" : "https://github.com/jeremyabannister/ProperValueType-module",
       "state" : {
-        "revision" : "d6c91820e1e10a749e8bbed207a3f1cf5a2e75ab",
+        "revision" : "679506a2e1280fd6b58b6e1727ef99cfaafc4d05",
         "version" : "0.1.1"
       }
     },
@@ -73,30 +118,66 @@
       }
     },
     {
-      "identity" : "referencetype",
+      "identity" : "referencetype-module",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/jeremyabannister/ReferenceType",
+      "location" : "https://github.com/jeremyabannister/ReferenceType-module",
       "state" : {
-        "revision" : "df906ebeb31f2de16e3cf6b0bc38dc903fee8361",
+        "revision" : "8d0528fae069b48d8e94dd07267bcf98af9b90a2",
+        "version" : "0.1.0"
+      }
+    },
+    {
+      "identity" : "retroactiveconformance-dictionary-error",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/jeremyabannister/RetroactiveConformance-Dictionary-Error",
+      "state" : {
+        "revision" : "fcc514c988bc6bae5dedb57563d2715d830af598",
+        "version" : "0.1.0"
+      }
+    },
+    {
+      "identity" : "sequence-asarray",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/jeremyabannister/Sequence-asArray",
+      "state" : {
+        "revision" : "c1da5ef00a6a057f0376410517dcf82f16fc0b6e",
+        "version" : "0.1.0"
+      }
+    },
+    {
+      "identity" : "string-utf8data",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/jeremyabannister/String-utf8Data",
+      "state" : {
+        "revision" : "af34c29e3abefb0b8f48ba4d29b6942609da9a2a",
+        "version" : "0.1.0"
+      }
+    },
+    {
+      "identity" : "subscript-collection-safely",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/jeremyabannister/subscript-collection-safely",
+      "state" : {
+        "revision" : "c78fbddba5ffdf074cc9e4e2d7fab0e5ec56700e",
         "version" : "0.1.1"
       }
     },
     {
-      "identity" : "testable",
+      "identity" : "testable-module",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/jeremyabannister/Testable",
+      "location" : "https://github.com/jeremyabannister/Testable-module",
       "state" : {
-        "revision" : "bbdd7f659b7e0de0b39f6990859ef6c8d68aacf0",
-        "version" : "0.1.3"
+        "revision" : "b0642c654d854c391c4c88ca112a8b3433028fa9",
+        "version" : "0.1.0"
       }
     },
     {
-      "identity" : "verboseequatable",
+      "identity" : "verboseequatable-module",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/jeremyabannister/VerboseEquatable",
+      "location" : "https://github.com/jeremyabannister/VerboseEquatable-module",
       "state" : {
-        "revision" : "1cc7ee4342ab5b5f6c1a2e6581fee21d2fb5ea42",
-        "version" : "0.1.4"
+        "revision" : "14fab6b18aad5fc80e2119465515d358c343ca26",
+        "version" : "0.1.0"
       }
     },
     {
@@ -104,8 +185,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/jeremyabannister/XCTestToolkit",
       "state" : {
-        "revision" : "b564a62731a30b434d110b8d43775707a15dd227",
-        "version" : "0.1.3"
+        "revision" : "ad6a4de96c7ff31435afb1945f719a30edc867ad",
+        "version" : "0.1.5"
       }
     }
   ],

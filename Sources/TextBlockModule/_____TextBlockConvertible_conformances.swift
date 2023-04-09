@@ -33,7 +33,7 @@ extension Array: TextBlockConvertible {
 // MARK: - Set
 extension Set: TextBlockConvertible {
     public var asTextBlock: TextBlock {
-        self.asArray.asTextBlock
+        self.asArray().asTextBlock
     }
 }
 
