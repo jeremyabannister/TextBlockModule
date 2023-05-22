@@ -37,6 +37,15 @@
       }
     },
     {
+      "identity" : "distincttype-module",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/jeremyabannister/DistinctType-module",
+      "state" : {
+        "revision" : "1eb1233190cb85c51f12403f3c9cfbe94927702a",
+        "version" : "0.2.0"
+      }
+    },
+    {
       "identity" : "dummymodule",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/jeremyabannister/DummyModule",
@@ -77,8 +86,17 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/jeremyabannister/FoundationToolkit",
       "state" : {
-        "revision" : "f059a74b6365b306b0c46e16eec761e7fb4bf532",
-        "version" : "0.6.0"
+        "revision" : "42cf4b8ab84e170ad3f2640f423e9b584daaf6fa",
+        "version" : "0.7.0"
+      }
+    },
+    {
+      "identity" : "hascustomuuidtype-module",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/jeremyabannister/HasCustomUUIDType-module",
+      "state" : {
+        "revision" : "5235444889272d59fe985f0efe801c9fc28b2e8a",
+        "version" : "0.2.0"
       }
     },
     {
@@ -109,11 +127,11 @@
       }
     },
     {
-      "identity" : "randomlygeneratablemodule",
+      "identity" : "randomlygeneratable-module",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/jeremyabannister/RandomlyGeneratableModule",
+      "location" : "https://github.com/jeremyabannister/RandomlyGeneratable-module",
       "state" : {
-        "revision" : "89e6dea09d0df5c464a44f00b96b6fccd0f5452d",
+        "revision" : "d9c78f022678459888cee34d0cb5a6534a2b4071",
         "version" : "0.1.0"
       }
     },

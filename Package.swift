@@ -1,4 +1,4 @@
-// swift-tools-version: 5.7
+// swift-tools-version: 5.8
 
 ///
 import PackageDescription
@@ -17,7 +17,7 @@ let package = Package(
         ///
         .package(
             url: "https://github.com/jeremyabannister/FoundationToolkit",
-            "0.6.0" ..< "0.7.0"
+            "0.7.0" ..< "0.8.0"
         ),
     ],
     targets: [
@@ -26,14 +26,16 @@ let package = Package(
         .target(
             name: "TextBlockModule",
             dependencies: [
-                "FoundationToolkit"
+                "FoundationToolkit",
             ]
         ),
         
         ///
         .testTarget(
             name: "TextBlockModule-tests",
-            dependencies: ["TextBlockModule"]
+            dependencies: [
+                "TextBlockModule",
+            ]
         ),
     ]
 )
