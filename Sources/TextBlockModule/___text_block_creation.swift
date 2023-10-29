@@ -27,6 +27,27 @@ public extension TextBlock {
     }
 }
 
+///
+extension TextBlock {
+    
+    ///
+    public static func memberwise
+        <Root,
+         each Member: TextBlockConvertible>
+        (_ rootType: Root.Type,
+         typeNickname: String? = nil,
+         _ members: repeat (String, each Member))
+    -> Self {
+        
+        ///
+        .callBlock(
+            header: typeNickname ?? "\(rootType)",
+            bracketType: .parenthesis,
+            nestedBlock: .parameterList(repeat each members)
+        )
+    }
+}
+
 
 // MARK: - callBlock
 
@@ -72,6 +93,37 @@ public extension TextBlock {
         keyValuePairs
             .map { TextBlock($0.1).addingParameterLabel($0.0) }
             .joinedAsCommaSeparatedList
+    }
+}
+
+///
+extension TextBlock {
+    
+    ///
+    public static func parameterList
+        <each Value: TextBlockConvertible>
+        (_ keyValuePairs: repeat (String, each Value))
+    -> TextBlock {
+        
+        ///
+        var textBlocks: [TextBlock] = []
+        
+        ///
+        func appendKeyValuePair <V> (_ keyValuePair: (key: String, value: V)) {
+            textBlocks
+                .append(
+                    TextBlock(keyValuePair.value)
+                        .addingParameterLabel(keyValuePair.key)
+                )
+        }
+        
+        ///
+        _ = (repeat appendKeyValuePair(each keyValuePairs))
+        
+        ///
+        return
+            textBlocks
+                .joinedAsCommaSeparatedList
     }
 }
 
