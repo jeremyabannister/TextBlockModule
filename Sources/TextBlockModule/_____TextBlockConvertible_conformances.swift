@@ -54,3 +54,39 @@ extension Dictionary: TextBlockConvertible {
         )
     }
 }
+
+// MARK: - Bool
+extension Bool: TextBlockConvertible {
+    
+    ///
+    public var asTextBlock: TextBlock {
+        [self.description]
+    }
+}
+
+// MARK: - Int
+extension Int: TextBlockConvertible {
+    
+    ///
+    public var asTextBlock: TextBlock {
+        [self.description]
+    }
+}
+
+// MARK: - Double
+extension Double: TextBlockConvertible {
+    
+    ///
+    public var asTextBlock: TextBlock {
+        [self.description]
+    }
+}
+
+// MARK: - String
+extension String: TextBlockConvertible {
+    
+    ///
+    public var asTextBlock: TextBlock {
+        [self]
+    }
+}
