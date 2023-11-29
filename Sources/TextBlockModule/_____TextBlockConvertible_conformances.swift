@@ -55,8 +55,26 @@ extension Dictionary: TextBlockConvertible {
     }
 }
 
-// MARK: - Bool
-extension Bool: TextBlockConvertible {
+// MARK: - UUID
+extension UUID: TextBlockConvertible {
+    
+    ///
+    public var asTextBlock: TextBlock {
+        [self.description]
+    }
+}
+
+// MARK: - String
+extension String: TextBlockConvertible {
+    
+    ///
+    public var asTextBlock: TextBlock {
+        [self]
+    }
+}
+
+// MARK: - Double
+extension Double: TextBlockConvertible {
     
     ///
     public var asTextBlock: TextBlock {
@@ -73,20 +91,11 @@ extension Int: TextBlockConvertible {
     }
 }
 
-// MARK: - Double
-extension Double: TextBlockConvertible {
+// MARK: - Bool
+extension Bool: TextBlockConvertible {
     
     ///
     public var asTextBlock: TextBlock {
         [self.description]
-    }
-}
-
-// MARK: - String
-extension String: TextBlockConvertible {
-    
-    ///
-    public var asTextBlock: TextBlock {
-        [self]
     }
 }
