@@ -31,13 +31,14 @@ public extension TextBlock {
 extension TextBlock {
     
     ///
-    public static func memberwise
-        <Root,
-         each Member: TextBlockConvertible>
-        (_ rootType: Root.Type,
+    public static func memberwise<
+        Root,
+        each Member
+    >(
+        _ rootType: Root.Type,
          typeNickname: String? = nil,
-         _ members: repeat (String, each Member))
-    -> Self {
+        _ members: repeat (String, each Member)
+    ) -> Self {
         
         ///
         .callBlock(
@@ -100,10 +101,11 @@ public extension TextBlock {
 extension TextBlock {
     
     ///
-    public static func parameterList
-        <each Value: TextBlockConvertible>
-        (_ keyValuePairs: repeat (String, each Value))
-    -> TextBlock {
+    public static func parameterList<
+        each Value
+    >(
+        _ keyValuePairs: repeat (String, each Value)
+    ) -> TextBlock {
         
         ///
         var textBlocks: [TextBlock] = []
