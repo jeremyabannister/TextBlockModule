@@ -6,7 +6,10 @@
 //
 
 // MARK: - Optional
-extension Optional: TextBlockConvertible where Wrapped: TextBlockConvertible {
+extension Optional: TextBlockConvertible
+    where Wrapped: TextBlockConvertible {
+    
+    ///
     public var asTextBlock: TextBlock {
         switch self {
         case .some (let wrapped): return wrapped.asTextBlock

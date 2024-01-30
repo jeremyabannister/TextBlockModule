@@ -6,33 +6,35 @@
 //
 
 ///
-public struct TextBracketType:
-    Codable,
-    Hashable {
+public struct TextBracketType: Codable,
+                               Hashable {
     
     ///
     public var opener: String
-    
-    ///
     public var closer: String
     
     ///
-    private init (opener: String,
-                  closer: String) {
+    private init(
+        opener: String,
+        closer: String
+    ) {
         
+        ///
         self.opener = opener
         self.closer = closer
     }
 }
 
 ///
-public extension TextBracketType {
+extension TextBracketType {
     
     ///
-    static func custom (_ opener: String,
-                        _ closer: String)
-        -> TextBracketType {
+    public static func custom(
+        _ opener: String,
+        _ closer: String
+    ) -> TextBracketType {
         
+        ///
         .init(
             opener: opener,
             closer: closer
@@ -40,17 +42,17 @@ public extension TextBracketType {
     }
     
     ///
-    static var parenthesis: TextBracketType {
+    public static var parenthesis: TextBracketType {
         .custom("(", ")")
     }
     
     ///
-    static var squareBracket: TextBracketType {
+    public static var squareBracket: TextBracketType {
         .custom("[", "]")
     }
     
     ///
-    static var curlyBrace: TextBracketType {
+    public static var curlyBrace: TextBracketType {
         .custom("{", "}")
     }
 }

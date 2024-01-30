@@ -8,15 +8,16 @@
 // MARK: - memberwise
 
 ///
-public extension TextBlock {
+extension TextBlock {
     
     ///
-    static func memberwise
-        <T>
-        (_ type: T.Type,
-         typeNickname: String? = nil,
-         _ members: [(String, Any)])
-    -> Self {
+    public static func memberwise<
+        T
+    >(
+        _ type: T.Type,
+        typeNickname: String? = nil,
+        _ members: [(String, Any)]
+    ) -> Self {
         
         ///
         .callBlock(
@@ -53,14 +54,14 @@ extension TextBlock {
 // MARK: - callBlock
 
 ///
-public extension TextBlock {
+extension TextBlock {
     
     ///
-    static func callBlock
-        (header: String?,
-         bracketType: TextBracketType,
-         nestedBlock: TextBlock)
-    -> TextBlock {
+    public static func callBlock(
+        header: String?,
+        bracketType: TextBracketType,
+        nestedBlock: TextBlock
+    ) -> TextBlock {
         
         ///
         let callHead = (header ?? "") + bracketType.opener
@@ -82,15 +83,23 @@ public extension TextBlock {
 // MARK: - parameterList
 
 ///
-public extension TextBlock {
+extension TextBlock {
     
     ///
-    static func parameterList (_ keyValuePairs: (String, Any)...) -> TextBlock {
+    public static func parameterList(
+        _ keyValuePairs: (String, Any)...
+    ) -> TextBlock {
+        
+        ///
         parameterList(keyValuePairs)
     }
     
     ///
-    static func parameterList (_ keyValuePairs: [(String, Any)]) -> TextBlock {
+    public static func parameterList(
+        _ keyValuePairs: [(String, Any)]
+    ) -> TextBlock {
+        
+        ///
         keyValuePairs
             .map { TextBlock($0.1).addingParameterLabel($0.0) }
             .joinedAsCommaSeparatedList
@@ -132,10 +141,10 @@ extension TextBlock {
 // MARK: - Array<TextBlock>.joinedAsCommaSeparatedList
 
 ///
-public extension Array where Element == TextBlock {
+extension Array where Element == TextBlock {
     
     ///
-    var joinedAsCommaSeparatedList: TextBlock {
+    public var joinedAsCommaSeparatedList: TextBlock {
         self.reduce(into: TextBlock()) { result, nextTextBlock in
             if result.isNotEmpty { result.mutateLast { $0 += "," } }
             result += nextTextBlock
@@ -146,20 +155,20 @@ public extension Array where Element == TextBlock {
 // MARK: - addingParameterLabel
 
 ///
-public extension TextBlock {
+extension TextBlock {
     
     ///
-    func addingParameterLabel (_ string: String) -> Self {
+    public func addingParameterLabel(_ string: String) -> Self {
         self.addingParameterLabel([string])
     }
     
     ///
-    func addingParameterLabel (_ label: some TextBlockConvertible) -> Self {
+    public func addingParameterLabel(_ label: some TextBlockConvertible) -> Self {
         addingParameterLabel(label.asTextBlock)
     }
     
     ///
-    func addingParameterLabel (_ labelBlock: TextBlock) -> Self {
+    public func addingParameterLabel(_ labelBlock: TextBlock) -> Self {
         
         ///
         let labelBlock = labelBlock.mutatingLast { $0 += ":" }
@@ -182,13 +191,13 @@ public extension TextBlock {
 // MARK: - indented
 
 ///
-public extension TextBlock {
+extension TextBlock {
     
     ///
-    static func indented
-        (by indentationCount: Int = 1,
-         _ textBlock: TextBlock)
-    -> TextBlock {
+    public static func indented(
+        by indentationCount: Int = 1,
+        _ textBlock: TextBlock
+    ) -> TextBlock {
         
         ///
         textBlock.indented(by: indentationCount)
@@ -196,10 +205,14 @@ public extension TextBlock {
 }
 
 ///
-public extension TextBlock {
+extension TextBlock {
     
     ///
-    func indented (by indentationCount: Int = 1) -> TextBlock {
+    public func indented(
+        by indentationCount: Int = 1
+    ) -> TextBlock {
+        
+        ///
         self.map { $0.indented(by: indentationCount) }
     }
 }
@@ -208,10 +221,10 @@ public extension TextBlock {
 // MARK: - init(_:Any)
 
 ///
-public extension TextBlock {
+extension TextBlock {
     
     ///
-    init (_ anyValue: Any) {
+    public init(_ anyValue: Any) {
         
         ///
         if let textBlockConvertible = anyValue as? TextBlockConvertible {

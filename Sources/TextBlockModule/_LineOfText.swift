@@ -9,15 +9,15 @@
 public typealias LineOfText = String
 
 ///
-public extension LineOfText {
+extension LineOfText {
     
     ///
-    func indented (by indentationCount: Int = 1) -> LineOfText {
+    public func indented (by indentationCount: Int = 1) -> LineOfText {
         Self.indentation(indentationCount) + self
     }
     
     ///
-    private static func indentation (_ n: Int) -> String {
+    private static func indentation(_ n: Int) -> String {
         (0 ..< n).reduce(into: "") { string, _ in string += "    " }
     }
 }

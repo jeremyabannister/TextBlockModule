@@ -8,10 +8,14 @@
 // MARK: - multilineDescription
 
 ///
-public extension TextBlockConvertible {
+extension TextBlockConvertible {
     
     ///
-    func multilineDescription (indentationCount: Int = 0) -> String {
+    public func multilineDescription(
+        indentationCount: Int = 0
+    ) -> String {
+        
+        ///
         self
             .asTextBlock
             .indented(by: indentationCount)
