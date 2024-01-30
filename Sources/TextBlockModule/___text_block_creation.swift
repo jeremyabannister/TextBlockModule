@@ -87,7 +87,7 @@ extension TextBlock {
     
     ///
     public static func parameterList(
-        _ keyValuePairs: (String, Any)...
+        _ keyValuePairs: (String?, Any)...
     ) -> TextBlock {
         
         ///
@@ -96,12 +96,19 @@ extension TextBlock {
     
     ///
     public static func parameterList(
-        _ keyValuePairs: [(String, Any)]
+        _ keyValuePairs: [(String?, Any)]
     ) -> TextBlock {
         
         ///
         keyValuePairs
-            .map { TextBlock($0.1).addingParameterLabel($0.0) }
+            .map { key, value in
+                TextBlock(value)
+                    .mutated {
+                        if let key {
+                            $0 = $0.addingParameterLabel(key)
+                        }
+                    }
+            }
             .joinedAsCommaSeparatedList
     }
 }
@@ -113,18 +120,22 @@ extension TextBlock {
     public static func parameterList<
         each Value
     >(
-        _ keyValuePairs: repeat (String, each Value)
+        _ keyValuePairs: repeat (String?, each Value)
     ) -> TextBlock {
         
         ///
         var textBlocks: [TextBlock] = []
         
         ///
-        func appendKeyValuePair <V> (_ keyValuePair: (key: String, value: V)) {
+        func appendKeyValuePair <V> (_ keyValuePair: (key: String?, value: V)) {
             textBlocks
                 .append(
                     TextBlock(keyValuePair.value)
-                        .addingParameterLabel(keyValuePair.key)
+                        .mutated {
+                            if let key = keyValuePair.key {
+                                $0 = $0.addingParameterLabel(key)
+                            }
+                        }
                 )
         }
         
