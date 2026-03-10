@@ -11,6 +11,20 @@
 extension TextBlock {
     
     ///
+    public static func memberwise(
+        _ typeName: String,
+        _ members: [(String, Any)]
+    ) -> Self {
+        
+        ///
+        .callBlock(
+            header: typeName,
+            bracketType: .parenthesis,
+            nestedBlock: .parameterList(members)
+        )
+    }
+    
+    ///
     public static func memberwise<
         T
     >(
